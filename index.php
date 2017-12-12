@@ -1,49 +1,50 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: bizou
+ * User: nicolas
  * Date: 12/12/17
- * Time: 15:12
+ * Time: 17:07
  */
+$method = $_SERVER['REQUEST_METHOD'];
 
-function processMessage($update) {
-    if($update["result"]["action"] == "sayHello"){
-        sendMessage(array(
-            "source" => $update["result"]["source"],
-            "speech" => "Hello from webhook",
-            "displayText" => "Hello from webhook",
-            "contextOut" => array()
-        ));
+// Process only when method is POST
+if($method == 'POST'){
+    $requestBody = file_get_contents('php://input');
+    $json = json_decode($requestBody);
+
+    $text = $json->result->parameters->text;
+
+    switch ($text) {
+        case 'hi':
+            $speech = "Hi, Nice to meet you";
+            break;
+
+        case 'bye':
+            $speech = "Bye, good night";
+            break;
+
+        case 'anything':
+            $speech = "Yes, you can type anything here.";
+            break;
+
+        case 'comment on fait':
+            $speech = "Débrouille toi !!";
+            break;
+
+        default:
+            $speech = "Sorry, I didnt get that. Please ask me something else.";
+            break;
     }
-}
 
-function sendMessage($parameters) {
-    echo json_encode($parameters);
+    $response = new \stdClass();
+    $response->speech = $speech;
+    $response->displayText = $speech;
+    $response->source = "webhook";
+    echo json_encode($response);
 }
-
-$update_response = file_get_contents("php://input");
-$update = json_decode($update_response, true);
-if (isset($update["result"]["action"])) {
-    processMessage($update);
+else
+{
+    echo "Method not allowed";
 }
 
 ?>
-
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-
-<iframe
-    width="350"
-    height="430"
-    src="https://console.dialogflow.com/api-client/demo/embedded/c34c6b26-3077-4ed3-b0f1-90a1ba66dda0">
-</iframe>
-</body>
-</html>
