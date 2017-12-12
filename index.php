@@ -12,18 +12,12 @@
 </body>
 </html>
 <?php
-/**
- * Created by PhpStorm.
- * User: nicolas
- * Date: 12/12/17
- * Time: 17:07
- */
 $method = $_SERVER['REQUEST_METHOD'];
 ?>
 <pre>
 <?= var_dump($method); ?>
 </pre>
-<?php/*
+<?php
 // Process only when method is POST
 if($method == 'POST'){
     $requestBody = file_get_contents('php://input');
