@@ -1,0 +1,27 @@
+body {
+  background-color: black;
+}
+
+.test {
+  color: white;
+}
+
+h1 {
+  font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  color: white;
+  text-align: center;
+  font-size: 3.5em;
+}
+
+h4 {
+  font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  color: #baa085;
+  font-weight: bold;
+  font-size: 1em;
+  margin-top: -75px;
+  margin-left: 110px;
+}
+
+.colored {
+  color: #baa085;
+}
