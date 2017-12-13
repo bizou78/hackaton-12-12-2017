@@ -1,0 +1,91 @@
+body {
+  background-color: black;
+}
+
+.test {
+  color: white;
+}
+
+h1 {
+  font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  color: white;
+  text-align: center;
+  font-size: 3.5em;
+}
+
+h4 {
+  font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  color: #baa085;
+  font-weight: bold;
+  font-size: 1em;
+  margin-top: -75px;
+  margin-left: 110px;
+}
+
+.colored {
+  color: #baa085;
+}
+
+
+body {
+  background-color: black;
+}
+
+.loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -170px 0 0 -60px;
+  background: rgb(236, 233, 233);
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  border: 10px solid #baa085;
+}
+.loading:after {
+  content: '';
+  background: transparent;
+  width: 140%;
+  height: 140%;
+  position: absolute;
+  border-radius: 100%;
+  top: -20%;
+  left: -20%;
+  opacity: 0.8;
+  box-shadow: rgba(255, 255, 255, 0.6) -4px -5px 3px -3px;
+  animation: rotate 1s infinite linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+.google {
+  width: 600px;
+  margin-top: 400px;
+  margin-left: 25%;
+  text-align: center;
+  border: 0.5px solid white; 
+  height: 50px;
+  background: transparent;
+  font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size: 2em;
+  font-weight: bold;
+  color: #baa085;
+}
+
+button {
+  font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size: 2.3em;
+  text-align: center;
+  background-color: #baa085;
+  color: white;
+  font-weight: bold;
+  border: none;
+
+}
